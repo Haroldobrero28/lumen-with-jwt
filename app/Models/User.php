@@ -15,6 +15,8 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 {
     use Authenticatable, Authorizable, HasFactory;
 
+    protected $table = "mis_users";
+
     /**
      * The attributes that are mass assignable.
      *
