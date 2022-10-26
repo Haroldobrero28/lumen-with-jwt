@@ -27,6 +27,10 @@ Then run nyo yung project " php -S localhost:8000 -t public "
 Tas sa postman yung url localhost:8000/login  then form data email and password
 
 
+## CORS
+
+ - Need nyo nalang iconfigure yung nasa config/cors.php based sa need nyo.
+
 ## Security Vulnerabilities
 
 If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
