@@ -60,8 +60,9 @@ $app->singleton(
 */
 
 $app->configure('app');
-
 $app->configure('jwt');
+$app->configure('cors');
+
 
 /*
 |--------------------------------------------------------------------------
@@ -80,6 +81,7 @@ $app->configure('jwt');
 
  $app->routeMiddleware([
      'auth' => App\Http\Middleware\Authenticate::class,
+
  ]);
 
 /*
@@ -95,6 +97,9 @@ $app->configure('jwt');
 
 $app->register(App\Providers\AuthServiceProvider::class);
 $app->register(PHPOpenSourceSaver\JWTAuth\Providers\LumenServiceProvider::class);
+$app->register(Fruitcake\Cors\CorsServiceProvider::class);
+
+$app->middleware([Fruitcake\Cors\HandleCors::class]);
 
 
 // $app->register(App\Providers\AppServiceProvider::class);
