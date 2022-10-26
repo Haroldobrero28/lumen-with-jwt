@@ -11,9 +11,21 @@ Laravel Lumen is a stunningly fast PHP micro-framework for building web applicat
 
 Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
 
-## Contributing
+Documentation of JWT (https://laravel-jwt-auth.readthedocs.io/en/latest/)
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+- To setup upon cloning or dowloading
+
+1. Run composer install/update
+2. Setup .env file
+3. Regenerate a secret key by running " php artisan jwt:secret "
+
+All goods na yan.
+
+Pag gusto nyo naman i try pwede kayo mag setup ng database sa .env file
+Then run nyo yung project " php -S localhost:8000 -t public "
+Tas sa postman yung url localhost:8000/login  then form data email and password
+
 
 ## Security Vulnerabilities
 
