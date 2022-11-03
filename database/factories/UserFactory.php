@@ -4,6 +4,9 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
+use Illuminate\Support\Carbon;
 
 class UserFactory extends Factory
 {
@@ -21,9 +24,20 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        static $password = 'password';
+        $uuid = Str::uuid();
+
         return [
-            'name' => $this->faker->name,
+            'id' => $uuid,
             'email' => $this->faker->unique()->safeEmail,
+            'password' => Hash::make($password),
+            // 'email' => Str::random(10).'@gmail.com',
+            // 'password' => Hash::make('password'),
+            'created_by' => $uuid,
+            'updated_by' => $uuid,
+            'deleted_by' => $uuid,
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
         ];
     }
 }
