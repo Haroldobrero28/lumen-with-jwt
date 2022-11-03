@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         //     UserSeeder::class,
         // ]);
         User::factory()
-            ->count(1000)
+            ->count(10)
             ->create();
     }
 }

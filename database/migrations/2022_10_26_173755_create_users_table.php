@@ -17,16 +17,18 @@ return new class extends Migration
             $table->uuid('id');
             $table->string('email', 255);
             $table->string('password', 255);
-            $table->dateTime('created_at', $precision = 0);
-            $table->dateTime('updated_at', $precision = 0);
-            $table->softDeletes($column = 'deleted_at', $precision = 0);
+            $table->dateTime('created_at');
+            $table->dateTime('updated_at');
+            $table->uuid('deleted_by')->nullable();
+            $table->softDeletes()->nullable();
+
+
             $table->primary('id');
         });
 
         Schema::table('users',function (Blueprint $table){
             $table->foreignUuid('created_by')->references('id')->on('users');
             $table->foreignUuid('updated_by')->references('id')->on('users');
-            $table->foreignUuid('deleted_by')->references('id')->on('users');
         });
     }
 

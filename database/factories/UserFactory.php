@@ -31,11 +31,8 @@ class UserFactory extends Factory
             'id' => $uuid,
             'email' => $this->faker->unique()->safeEmail,
             'password' => Hash::make($password),
-            // 'email' => Str::random(10).'@gmail.com',
-            // 'password' => Hash::make('password'),
             'created_by' => $uuid,
             'updated_by' => $uuid,
-            'deleted_by' => $uuid,
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
