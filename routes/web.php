@@ -18,3 +18,22 @@ $router->get('/', function () use ($router) {
 });
 
 $router->post('/login', 'AuthController@login');
+
+
+$router->group(['middleware' => ['auth']], function () use ($router) {
+
+
+    $router->get('/me', 'AuthController@me');
+
+
+    $router->get('get_all_user', 'UserController@getAllUser');
+    $router->get('get_user/{userId}', 'UserController@getUser');
+    $router->patch('update_user/{userId}', 'UserController@updateUser');
+    $router->post('create_user', 'UserController@createUser');
+    $router->delete('delete_user/{userId}', 'UserController@deleteUser');
+
+
+
+
+});
+
