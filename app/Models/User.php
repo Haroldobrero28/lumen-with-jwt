@@ -17,6 +17,12 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
     use Authenticatable, Authorizable, HasFactory;
 
     protected $table = "users";
+
+    protected $primaryKey = 'id';
+
+    public $incrementing = false;
+
+
     use SoftDeletes;
 
     /**
@@ -25,7 +31,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
      * @var bool
      */
     public $timestamps = true;
-    
+
     /**
      * The storage format of the model's date columns.
      *
@@ -72,6 +78,7 @@ class User extends Model implements AuthenticatableContract, AuthorizableContrac
 
     public function getJWTIdentifier()
     {
+
         return $this->getKey();
     }
 
